@@ -9,13 +9,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class MyFirstSeleniumScript {
     public static void main(String[] args) {
 
-
+        //Chrome Driver
         WebDriverManager.chromedriver().setup();
 
         ChromeDriver driver = new ChromeDriver();
 
         // open some website
 
+        
+        //Edge Driver
         driver.get("http://google.com");
 
         WebDriverManager.edgedriver().setup();
