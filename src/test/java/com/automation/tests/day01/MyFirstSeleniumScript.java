@@ -17,7 +17,7 @@ public class MyFirstSeleniumScript {
         // open some website
 
         
-        //Edge Driver
+        //Edge Driver and this is a good driver.
         driver.get("http://google.com");
 
         WebDriverManager.edgedriver().setup();
