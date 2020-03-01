@@ -14,6 +14,13 @@ public class MyFirstSeleniumScript {
 
         ChromeDriver driver = new ChromeDriver();
 
+        // open some website
+
+        driver.get("http://google.com");
+
+        WebDriverManager.edgedriver().setup();
+        EdgeDriver fireFoxdriver = new EdgeDriver();
+        fireFoxdriver.get("http://google.com");
 
 
 
