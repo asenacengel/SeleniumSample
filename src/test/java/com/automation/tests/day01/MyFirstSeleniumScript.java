@@ -14,8 +14,6 @@ public class MyFirstSeleniumScript {
 
         ChromeDriver driver = new ChromeDriver();
 
-        // open some website
-
         
         //Edge Driver and this is a good driver.
         driver.get("http://google.com");
