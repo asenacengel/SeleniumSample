@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class MyFirstSeleniumScript {
     public static void main(String[] args) {
 
-        //Chrome Driver
+        //Chrome Driver this is a chrome driver.
         WebDriverManager.chromedriver().setup();
 
         ChromeDriver driver = new ChromeDriver();
