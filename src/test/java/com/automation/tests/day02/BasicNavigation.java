@@ -17,6 +17,8 @@ public class BasicNavigation {
         // Chromedriver extends RemoteWebDriver --> implements Webdriver.
 
         driver.get("http://google.com");    // to open website
+        driver.manage().window().maximize();  // to maximize browser.
+        driver.manage().window().fullscreen();
 
         Thread.sleep(3000);   // for demo , wait 3 seconds.
 
@@ -33,13 +35,37 @@ public class BasicNavigation {
             System.out.println("Test is Failed");
         }
 
+        driver.navigate().to("http://amazon.com");
+
+        if(driver.getTitle().toLowerCase().contains("amazon")){
+            System.out.println("TEST PASSED!");
+
+        }else {
+            System.out.println("TEST FAILED");
+        }
+
+        // come back to google
+        driver.navigate().back();
+        verifyEquals(driver.getTitle(), "Google");
+        // move forward in the browser history
+        driver.navigate().forward();
+        System.out.println("Title: "+driver.getTitle());
+        // driver.gettitle () returns page title of the page that is currently opened
+
+        driver.navigate().refresh();   // to reload the page
+        Thread.sleep(3000);     // for demo wait 3 seconds
+
         driver.close();  // to close browser  browser cant close itself
 
 
 
+    }
 
-
-
-
+    public static void verifyEquals(String arg1,String arg2){
+        if(arg1.equals(arg2)){
+            System.out.println("TEST PASSED");
+        }else {
+            System.out.println("TEST FAILED");
+        }
     }
 }
