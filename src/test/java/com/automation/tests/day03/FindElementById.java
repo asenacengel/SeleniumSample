@@ -1,4 +1,4 @@
-package day03;
+package com.automation.tests.day03;
 
 import com.automation.utilities.DriverFactory;
 import org.openqa.selenium.By;
