@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class WarmUpTask {
     public static void main(String[] args) throws Exception{
 
-        WebDriver driver = DriverFactory.createADriver("chrome");
+        WebDriver driver = DriverFactory.createADriver(DriverFactory.Browser.Chrome);
         driver.get("https://www.ebay.com/");
       driver.findElement(By.id("gh-ac")).sendKeys("java book");
       driver.findElement(By.id("gh-btn")).submit();
@@ -20,7 +20,7 @@ public class WarmUpTask {
         driver.quit();
 
 
-        WebDriver driver1 = DriverFactory.createADriver("chrome");
+        WebDriver driver1 = DriverFactory.createADriver(DriverFactory.Browser.Chrome);
         driver1.get("http://amazon.com");
         driver1.findElement(By.id("twotabsearchtextbox")).sendKeys("java book",Keys.ENTER);
         String title = driver1.getTitle();
@@ -32,7 +32,7 @@ public class WarmUpTask {
 
         driver1.quit();
 
-        WebDriver driver2 = DriverFactory.createADriver("chrome");
+        WebDriver driver2 = DriverFactory.createADriver(DriverFactory.Browser.Chrome);
         driver2.get("http://wikipedia.org");
         driver2.findElement(By.id("searchInput")).sendKeys("Selenium webdriver",Keys.RETURN);
         Thread.sleep(3000);

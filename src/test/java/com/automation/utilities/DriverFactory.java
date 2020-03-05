@@ -9,19 +9,36 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
 
-    public static WebDriver createADriver(String browserName){
 
-        if(browserName.equalsIgnoreCase("chrome")){
-            WebDriverManager.chromedriver().setup();
-            return new ChromeDriver();
-        }else if(browserName.equalsIgnoreCase("Edge")){
-            WebDriverManager.edgedriver().setup();
-            return new EdgeDriver();
-        }else if(browserName.equalsIgnoreCase("firefox")){
-            WebDriverManager.firefoxdriver().setup();
-            return new FirefoxDriver();
-        }
-        return  null;
-        }
+    public enum Browser{
+        Chrome,
+        MicrosoftEdge,
+        FireFox,
+        Safari
     }
+    public static WebDriver createADriver(Browser browser){
+
+        WebDriver selectedDriver = null;
+        switch (browser){
+            case Chrome:
+                WebDriverManager.chromedriver().setup();
+                selectedDriver  = new ChromeDriver();
+                break;
+            case FireFox:
+                WebDriverManager.firefoxdriver().setup();
+                selectedDriver  = new FirefoxDriver();
+                break;
+
+            case MicrosoftEdge:
+                WebDriverManager.edgedriver().setup();
+                selectedDriver = new EdgeDriver();
+                break;
+            case Safari:
+
+                selectedDriver = new SafariDriver();
+                break;
+        }
+
+       return selectedDriver;
+    }}
 
