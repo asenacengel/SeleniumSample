@@ -11,8 +11,9 @@ public class FindElementPractice {
      //   WebDriverManager.chromedriver().setup();
       //  WebDriver driver = new ChromeDriver();
 
-        WebDriver driver = DriverFactory.createADriver(DriverFactory.Browser.Chrome);
+        WebDriver driver = DriverFactory.createADriver(DriverFactory.Browser.Safari);
         driver.get("http://practice.cybertekschool.com/sign_up");
+        driver.manage().window().maximize();
 
         WebElement fullName = driver.findElement(By.name("full_name"));
         fullName.sendKeys("Mister Twister");
