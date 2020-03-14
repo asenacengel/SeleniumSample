@@ -24,7 +24,7 @@ public class Xpath {
         button2.click();
         System.out.println(result.getText());
 
-        // click button 3
+        // click button 3 //span[starts-with(@class,h1y')]
         WebElement button3 = driver.findElement(By.xpath("//button[starts-with(@id,'button_')]"));
         button3.click();
         System.out.println(result.getText());
