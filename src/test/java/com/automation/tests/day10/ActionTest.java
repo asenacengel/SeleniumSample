@@ -43,6 +43,7 @@ public class ActionTest {
         WebElement imgText2 = driver.findElement(By.xpath("//h5[text()='name: user2']"));
         Assert.assertTrue(imgText2.isDisplayed());
 
+
     }
     @Test
     public void jqueryMenuTest(){
@@ -66,6 +67,7 @@ public class ActionTest {
         String expected = "You did great!";
         String actual = earth.getText();
         Assert.assertEquals(actual, expected);
+
     }
 
     @AfterMethod
