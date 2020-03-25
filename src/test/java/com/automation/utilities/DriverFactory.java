@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
+    private static WebDriver driver;
 
 
     public enum Browser{
@@ -18,27 +19,36 @@ public class DriverFactory {
     }
     public static WebDriver createADriver(Browser browser){
 
-        WebDriver selectedDriver = null;
+if(driver !=null){
+    return driver;
+}
         switch (browser){
             case Chrome:
                 WebDriverManager.chromedriver().setup();
-                selectedDriver  = new ChromeDriver();
+                driver  = new ChromeDriver();
                 break;
             case FireFox:
                 WebDriverManager.firefoxdriver().setup();
-                selectedDriver  = new FirefoxDriver();
+                driver  = new FirefoxDriver();
                 break;
 
             case MicrosoftEdge:
                 WebDriverManager.edgedriver().setup();
-                selectedDriver = new EdgeDriver();
+                driver = new EdgeDriver();
                 break;
             case Safari:
 
-                selectedDriver = new SafariDriver();
+                driver = new SafariDriver();
                 break;
         }
 
-       return selectedDriver;
-    }}
+       return driver;
+    }
+
+
+}
+
+
+
+
 
