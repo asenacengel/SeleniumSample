@@ -1,4 +1,8 @@
 package EmreSamples.VyTrack;
 
-public class States {
+public enum States{
+
+    GA,
+    SC,
+    CA
 }

@@ -23,52 +23,74 @@ public class VehiclePageTests {
     private By passwordBy = By.id("prependedInput2");
     private By fleetBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Fleet')]");
     private By subtitleBy = By.className("oro-subtitle");
+    private By pageNumberBy = By.cssSelector("input[type='number']");
     private WebDriver driver;
+
+
+
     @Test
     public void verifyPageSubTitle(){
-        driver.findElement(usernameBy).sendKeys(username);
-        driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
-        BrowserUtils.wait(5);
-        //click on fleet
-       // driver.findElement(fleetBy).click();
-        //Action class use for more advanced browser interactions.
-        Actions actions = new Actions(driver);
-        // move to element instead of click.
-        actions.moveToElement(driver.findElement(fleetBy)).perform();
-
-        BrowserUtils.wait(2);
-        //click on Vehicles
-        driver.findElement(By.linkText("Vehicles")).click();
-        BrowserUtils.wait(5);
+//################################################################
+        //find subtitle element
         WebElement subTitleElement = driver.findElement(subtitleBy);
         System.out.println(subTitleElement.getText());
 
         String expected = "All Cars";
         String actual = subTitleElement.getText();
-        Assert.assertEquals(expected, actual);
+
+        Assert.assertEquals(actual, expected);
     }
+
+    /**
+     *
+     *     ################ TASK 7 minutes until 3:48
+     *
+     *     Given user is on the vytrack landing page
+     *     When user logs on as a store manager
+     *     Then user navigates to Fleet --> Vehicles
+     *     And user verifies that page number is equals to "1"
+     */
     @Test
     public void verifyPageNumber(){
-        driver.findElement(usernameBy).sendKeys(username);
-        driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
-        BrowserUtils.wait(5);
-        driver.findElement(fleetBy).click();
-        driver.findElement(By.linkText("Vehicles")).click();
-        BrowserUtils.wait(5);
-        WebElement pageNumber = driver.findElement(By.cssSelector("input[type='number']"));
+        String expected = "1";
+        String actual = driver.findElement(pageNumberBy).getAttribute("value");
 
-        String expected2 = "1";
-        String actual2 = pageNumber.getAttribute("value");
-        Assert.assertEquals(expected2, actual2);
-
+        Assert.assertEquals(actual, expected);
     }
+
+
+
     @BeforeMethod
     public void setup() {
         WebDriverManager.chromedriver().version("79").setup();
         driver = new ChromeDriver();
         driver.get(URL);
         driver.manage().window().maximize();
+        //login
+        driver.findElement(usernameBy).sendKeys(username);
+        driver.findElement(passwordBy).sendKeys(password, Keys.ENTER);
+
+        //put more wait here as well, if didn't click
+        BrowserUtils.wait(5);
+
+        //click on fleet
+//        driver.findElement(fleetBy).click();
+        //Actions class is used for more advanced browser interactions
+        Actions actions = new Actions(driver);
+        //move to element instead of click
+        actions.moveToElement(driver.findElement(fleetBy)).perform();
+        //perform - to execute command
+        //every action should end with perform()
+
+        BrowserUtils.wait(2);
+
+        //click on Vehicles
+        driver.findElement(By.linkText("Vehicles")).click();
+        //put more wait time if you are getting Cars, Dashboard...
+        //this application is slooooow...
+        BrowserUtils.wait(5);
     }
+
     @AfterMethod
     public void teardown() {
         //if webdriver object alive
@@ -79,4 +101,5 @@ public class VehiclePageTests {
             driver = null;
         }
     }
+
 }

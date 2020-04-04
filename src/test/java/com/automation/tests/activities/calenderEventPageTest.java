@@ -23,6 +23,7 @@ public class calenderEventPageTest {
     private WebDriver driver;
     private Actions actions;
 
+
     private String storeManagerUserName="storemanager85";
     private String storeManagerPassword="UserUser123";
     private By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");

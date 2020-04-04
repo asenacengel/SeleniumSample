@@ -1,6 +1,18 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test suite">
 
-    <xsl:template match="/">
-    </xsl:template>
+    <test name="Login">
+        <parameter name="reportName" value="login"/>
+        <classes>
+            <class name="com.automation.pages.NewLoginTests"/>
+        </classes>
+    </test>
 
-</xsl:stylesheet>
+    <test name="Calendar events">
+        <parameter name="reportName" value="calendarEvents"/>
+        <classes>
+            <class name="com.automation.tests.activities.NewCalenderEventsTests"/>
+        </classes>
+    </test>
+
+</suite>

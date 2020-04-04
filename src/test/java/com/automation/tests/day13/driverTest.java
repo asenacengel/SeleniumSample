@@ -14,6 +14,7 @@ public class driverTest {
         Driver.getDriver().get("http://google.com");
         Assert.assertEquals(Driver.getDriver().getTitle(), "Google");
         Driver.closeDriver();
+
     }
 }
 

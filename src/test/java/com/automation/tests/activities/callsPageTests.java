@@ -21,9 +21,8 @@ public class callsPageTests {
 
     private String storeManagerUserName = "storemanager85";
     private String storeManagerPassword = "UserUser123";
-    private By activities = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
+    private By activitiesBy = By.xpath("//span[@class='title title-level-1' and contains(text(),'Activities')]");
     private By logCallBtnBy = By.cssSelector("a[title='Log call']");
-
     @BeforeMethod
     public void setUp(){
         driver = DriverFactory.createADriver(DriverFactory.Browser.Chrome);
@@ -35,10 +34,10 @@ public class callsPageTests {
         driver.findElement(userNameBy).sendKeys(storeManagerUserName);
         driver.findElement(passwordBy).sendKeys(storeManagerPassword, Keys.ENTER);
 
-       actions.moveToElement(driver.findElement(activities)).perform();
+       actions.moveToElement(driver.findElement(activitiesBy)).perform();
         BrowserUtils.wait(3);
         driver.findElement(By.linkText("Calls")).click();
-        BrowserUtils.wait(2);
+        BrowserUtils.wait(5);
 
     }
     @Test
